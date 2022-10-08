@@ -15,5 +15,6 @@ public class ShowFlowersCommand implements Command {
     @Override
     public void execute(List<String> params) {
         System.out.println("Flowers in your bouquet");
+        bouquet.showFlowers();
     }
 }

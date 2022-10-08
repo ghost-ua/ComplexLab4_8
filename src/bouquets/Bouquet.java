@@ -13,6 +13,7 @@ public class Bouquet {
 
     public Bouquet() {
         flowers = new HashMap<>();
+        accessories = new HashMap<>();
     }
 
     public void addFlower(Flower flower) {
@@ -47,4 +48,7 @@ public class Bouquet {
         }
     }
 
+    public HashMap<Integer, Accessory> getAccessories() {
+        return accessories;
+    }
 }

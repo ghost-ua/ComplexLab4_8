@@ -2,6 +2,7 @@ package menu.bouquetmenu;
 
 import bouquets.Bouquet;
 import menu.Command;
+import utils.BouquetUtils;
 
 import java.util.List;
 
@@ -14,6 +15,12 @@ public class AddAccessoriesToBouquetCommand implements Command {
 
     @Override
     public void execute(List<String> params) {
-        System.out.println("Accessory added to bouquet");
+        if (params.size() == 2) {
+            BouquetUtils.addAccessoryToBouquet(bouquet, params.get(0), params.get(1));
+            System.out.println("Accessory added to bouquet");
+        } else {
+            System.out.println("Wrong parameters added");
+        }
+
     }
 }

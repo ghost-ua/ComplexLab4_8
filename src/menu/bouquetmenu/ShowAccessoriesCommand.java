@@ -15,5 +15,6 @@ public class ShowAccessoriesCommand implements Command {
     @Override
     public void execute(List<String> params) {
         System.out.println("Accessories in your bouquet");
+        bouquet.showAccessories();
     }
 }

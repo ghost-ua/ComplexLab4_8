@@ -14,6 +14,7 @@ public class DelFlowerCommand implements Command {
 
     @Override
     public void execute(List<String> params) {
+        bouquet.getFlowers().remove(Integer.parseInt(params.get(0)));
         System.out.println("Flower deleted from bouquet");
     }
 }

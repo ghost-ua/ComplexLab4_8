@@ -22,7 +22,7 @@ public class BouquetMenu extends MainMenu {
 
         help = new ArrayList<>();
         help.add("add_flowers 'type' 'count'");
-        help.add("add_accessories 'type'");
+        help.add("add_accessories 'type' 'color'");
         help.add("del_flower 'index'");
         help.add("del_accessory 'index'");
         help.add("show_flowers");

@@ -2,6 +2,7 @@ package menu.bouquetmenu;
 
 import bouquets.Bouquet;
 import menu.Command;
+import utils.BouquetUtils;
 
 import java.util.List;
 
@@ -14,12 +15,11 @@ public class AddFlowersToBouquetCommand implements Command {
 
     @Override
     public void execute(List<String> params) {
-//        if (params.size() == 2) {
-//            BouquetUtils.addFlowersToBouquet(bouquet, params.get(0), Integer.parseInt(params.get(1)));
+        if (params.size() == 2) {
+            BouquetUtils.addFlowersToBouquet(bouquet, params.get(0), Integer.parseInt(params.get(1)));
             System.out.println("Flowers added to bouquet");
-//        } else{
-//            System.out.println("Wrong parameters added");
-//        }
-
+        } else {
+            System.out.println("Wrong parameters added");
+        }
     }
 }

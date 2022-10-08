@@ -14,6 +14,7 @@ public class DelAccessoryCommand implements Command {
 
     @Override
     public void execute(List<String> params) {
+        bouquet.getAccessories().remove(Integer.parseInt(params.get(0)));
         System.out.println("Flower deleted from bouquet");
     }
 }

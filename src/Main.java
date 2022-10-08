@@ -22,6 +22,5 @@ public class Main {
             List<String> command = new ArrayList<>(Arrays.asList(scanner.nextLine().split(" ")));
             mainMenu.execute(command);
         }
-
     }
 }
