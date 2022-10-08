@@ -7,7 +7,7 @@ import java.util.HashMap;
 
 public class Bouquet {
 
-    private String name;
+    private String name = " ";
     private double cost;
     protected HashMap<Integer, Flower> flowers;
     protected HashMap<Integer, Accessory> accessories;
@@ -54,6 +54,10 @@ public class Bouquet {
     }
 
     public void makeName(String type, int count) {
-        this.name += type + count;
+        this.name += type + " " + count + " ";
+    }
+
+    public String getName() {
+        return this.name;
     }
 }

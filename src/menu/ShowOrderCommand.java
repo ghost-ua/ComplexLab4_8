@@ -1,6 +1,7 @@
 package menu;
 
 import order.Order;
+import utils.OrderUtils;
 
 import java.util.List;
 
@@ -13,7 +14,9 @@ public class ShowOrderCommand implements Command {
 
     @Override
     public void execute(List<String> params) {
+
         System.out.println("This is your order");
+        OrderUtils.showOrder(order);
     }
 
 

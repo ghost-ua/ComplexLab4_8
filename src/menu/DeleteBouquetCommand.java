@@ -13,6 +13,7 @@ public class DeleteBouquetCommand implements Command {
 
     @Override
     public void execute(List<String> params) {
-        System.out.println("BouquetDeletedFromOrder");
+        order.delBouquet(Integer.parseInt(params.get(0)));
+        System.out.println("Bouquet Deleted From Order");
     }
 }

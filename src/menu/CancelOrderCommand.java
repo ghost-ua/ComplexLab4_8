@@ -5,7 +5,7 @@ import order.Order;
 import java.util.List;
 
 public class CancelOrderCommand implements Command {
-    private final Order order;
+    private Order order;
 
     public CancelOrderCommand(Order order) {
         this.order = order;
@@ -13,6 +13,7 @@ public class CancelOrderCommand implements Command {
 
     @Override
     public void execute(List<String> params) {
+        order = new Order();
         System.out.println("Your order was canceled");
     }
 }
