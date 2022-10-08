@@ -20,7 +20,6 @@ public class AddBouquetMenuCommand implements Command {
     @Override
     public void execute(List<String> params) {
         Bouquet obj = new Bouquet();
-        order.addBouquet(obj);
 
         BouquetMenu menu = new BouquetMenu(obj);
         Scanner scanner = new Scanner(System.in);
@@ -36,5 +35,6 @@ public class AddBouquetMenuCommand implements Command {
                 break;
             }
         }
+        order.addBouquet(obj);
     }
 }
