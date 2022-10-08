@@ -46,6 +46,7 @@ public class BouquetUtils {
             for (int i = 0; i < count; i++) {
                 bouquet.addFlower(createFlower(type, Freshness.MidFresh, 10));
             }
+            bouquet.makeName(type, count);
         } else {
             System.out.println("Такої квітки немає. Оберіть іншу: ");
             type = scanner.nextLine();
