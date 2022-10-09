@@ -2,27 +2,27 @@ package menu.bouquetmenu;
 
 import bouquets.Bouquet;
 import menu.Command;
+import utils.BouquetUtils;
 
 import java.util.List;
 
-public class DelFlowerCommand implements Command {
+public class FindStalkLengthCommand implements Command {
     private final Bouquet bouquet;
 
-    public DelFlowerCommand(Bouquet bouquet) {
+    public FindStalkLengthCommand(Bouquet bouquet) {
         this.bouquet = bouquet;
     }
 
     @Override
     public String getKey(){
-        return "del_flower";
+        return "find_stalk";
     }
     @Override
     public String getParams(){
-        return " 'index'";
+        return " 'low limit' 'high limit'";
     }
     @Override
     public void execute(List<String> params) {
-        bouquet.getFlowers().remove(Integer.parseInt(params.get(0))-1);
-        System.out.println("Flower deleted from bouquet");
+        BouquetUtils.findFlowerByStalkLength(bouquet, Integer.parseInt(params.get(0)), Integer.parseInt(params.get(1)));
     }
 }

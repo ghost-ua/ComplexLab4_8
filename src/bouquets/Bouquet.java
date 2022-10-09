@@ -3,22 +3,24 @@ package bouquets;
 import accessories.Accessory;
 import flowers.Flower;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 public class Bouquet {
 
     private String name = " ";
     private double cost;
-    protected HashMap<Integer, Flower> flowers;
+    protected List<Flower> flowers;
     protected HashMap<Integer, Accessory> accessories;
 
     public Bouquet() {
-        flowers = new HashMap<>();
+        flowers = new ArrayList<>();
         accessories = new HashMap<>();
     }
 
     public void addFlower(Flower flower) {
-        flowers.put(flowers.size() + 1, flower);
+        flowers.add(flower);
         cost += flower.getCost();
     }
 
@@ -31,14 +33,14 @@ public class Bouquet {
         return cost;
     }
 
-    public HashMap<Integer, Flower> getFlowers() {
+    public List<Flower> getFlowers() {
         return flowers;
     }
 
     public void showFlowers() {
-        for (Integer key : flowers.keySet()) {
-            System.out.println("Index : " + key);
-            System.out.println("Flower : " + flowers.get(key));
+        for (int i=0; i<flowers.size(); i++) {
+            System.out.println("Index : " + (i+1));
+            System.out.println("Flower : " + flowers.get(i));
         }
     }
 

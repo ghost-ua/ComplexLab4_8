@@ -5,9 +5,7 @@ import accessories.*;
 import bouquets.Bouquet;
 import flowers.*;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class BouquetUtils {
     protected static List<String> flowerTypes;
@@ -46,6 +44,8 @@ public class BouquetUtils {
             for (int i = 0; i < count; i++) {
                 bouquet.addFlower(createFlower(type, Freshness.MidFresh, 10));
             }
+            bouquet.getFlowers().get(0).setStalkLength(5);
+
             bouquet.makeName(type, count);
         } else {
             System.out.println("Такої квітки немає. Оберіть іншу: ");
@@ -80,4 +80,25 @@ public class BouquetUtils {
         bouquet.addAccessory(createAccessory(type, color));
     }
 
+    public static void sortFlowersByFresh(Bouquet bouquet){
+        Collections.sort(bouquet.getFlowers(), new Comparator<Flower>(){
+            @Override
+            public int compare(Flower fl1, Flower fl2){
+                return fl1.getFresh().compareTo(fl2.getFresh());
+            }
+        });
+
+
+
+    }
+
+    public static void findFlowerByStalkLength(Bouquet bouquet, int from, int to){
+        List<Flower> flowers = bouquet.getFlowers();
+        for (int i=0; i<flowers.size(); i++) {
+            if(flowers.get(i).getStalkLength()>from && flowers.get(i).getStalkLength()<to){
+            System.out.println("Index : " + (i+1));
+            System.out.println("Flower : " + flowers.get(i));
+            }
+        }
+    }
 }

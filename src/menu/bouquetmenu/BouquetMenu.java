@@ -7,17 +7,18 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 
-
 public class BouquetMenu extends MainMenu {
-    private Bouquet bouquet;
+    private final Bouquet bouquet;
+
     public BouquetMenu(Bouquet bouquet) {
-        this.bouquet=bouquet;
+        this.bouquet = bouquet;
         menuItems = initializeMenu();
     }
 
     @Override
     public HashMap<String, Command> initializeMenu() {
         HashMap<String, Command> items = new HashMap<>();
+        help = new ArrayList<>();
 
         Command newComm = new AddFlowersToBouquetCommand(bouquet);
         items.put(newComm.getKey(), newComm);
@@ -43,9 +44,14 @@ public class BouquetMenu extends MainMenu {
         items.put(newComm.getKey(), newComm);
         help.add(newComm.getKey() + newComm.getParams());
 
+        newComm = new FindStalkLengthCommand(bouquet);
+        items.put(newComm.getKey(), newComm);
+        help.add(newComm.getKey() + newComm.getParams());
+
         newComm = new BackCommand();
         items.put(newComm.getKey(), newComm);
         help.add(newComm.getKey() + newComm.getParams());
+
 
         return items;
     }
