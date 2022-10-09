@@ -21,5 +21,7 @@ public class PayOrderCommand implements Command {
         OrderUtils.payOrder(order);
         OrderUtils.saveCheck(order);
         System.out.println("Thanks for purchase!");
+        OrderUtils.saveOrder(order);
+        OrderUtils.cancelOrder(order);
     }
 }

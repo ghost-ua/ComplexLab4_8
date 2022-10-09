@@ -1,6 +1,7 @@
 package menu;
 
 import order.Order;
+import utils.OrderUtils;
 
 import java.util.List;
 
@@ -17,7 +18,7 @@ public class CancelOrderCommand implements Command {
     }
     @Override
     public void execute(List<String> params) {
-        order = new Order();
+        OrderUtils.cancelOrder(order);
         System.out.println("Your order was canceled");
     }
 }

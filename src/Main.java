@@ -10,11 +10,10 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        List<Order> orders = new ArrayList<>();
 
         Scanner scanner = new Scanner(System.in);
 
-        MainMenu mainMenu = new MainMenu(orders);
+        MainMenu mainMenu = new MainMenu();
 
         while (true) {
             System.out.println("  __ Main Menu __");

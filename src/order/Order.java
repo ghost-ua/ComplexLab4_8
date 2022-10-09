@@ -27,10 +27,14 @@ public class Order {
         bouquets.remove(index);
     }
 
-
-    public void makePayment(String cardNum) {
-        cardNumber = cardNum;
+    public void setCost(double cost) {
+        this.cost = cost;
     }
+
+    public void setBouquets(HashMap<Integer, Bouquet> bouquets) {
+        this.bouquets = bouquets;
+    }
+
 
     public double getCost() {
         return cost;
