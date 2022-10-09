@@ -12,6 +12,10 @@ public class CancelOrderCommand implements Command {
     }
 
     @Override
+    public String getKey(){
+        return "cancel_order";
+    }
+    @Override
     public void execute(List<String> params) {
         order = new Order();
         System.out.println("Your order was canceled");

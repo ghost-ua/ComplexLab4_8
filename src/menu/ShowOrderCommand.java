@@ -13,6 +13,11 @@ public class ShowOrderCommand implements Command {
     }
 
     @Override
+    public String getKey(){
+        return "show_order";
+    }
+
+    @Override
     public void execute(List<String> params) {
 
         System.out.println("This is your order");

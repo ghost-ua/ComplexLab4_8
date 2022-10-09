@@ -13,6 +13,10 @@ public class PayOrderCommand implements Command {
     }
 
     @Override
+    public String getKey(){
+        return "pay_order";
+    }
+    @Override
     public void execute(List<String> params) {
         OrderUtils.payOrder(order);
         OrderUtils.saveCheck(order);

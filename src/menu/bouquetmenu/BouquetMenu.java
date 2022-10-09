@@ -1,7 +1,7 @@
 package menu.bouquetmenu;
 
 import bouquets.Bouquet;
-import menu.MainMenu;
+import menu.*;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -9,24 +9,44 @@ import java.util.HashMap;
 
 
 public class BouquetMenu extends MainMenu {
-
+    private Bouquet bouquet;
     public BouquetMenu(Bouquet bouquet) {
-        menuItems = new HashMap<>();
-        menuItems.put("add_flowers", new AddFlowersToBouquetCommand(bouquet));
-        menuItems.put("add_accessories", new AddAccessoriesToBouquetCommand(bouquet));
-        menuItems.put("del_flower", new DelFlowerCommand(bouquet));
-        menuItems.put("del_accessory", new DelAccessoryCommand(bouquet));
-        menuItems.put("show_flowers", new ShowFlowersCommand(bouquet));
-        menuItems.put("show_accessories", new ShowAccessoriesCommand(bouquet));
-        menuItems.put("back", new BackCommand());
+        this.bouquet=bouquet;
+        menuItems = initializeMenu();
+    }
 
-        help = new ArrayList<>();
-        help.add("add_flowers 'type' 'count'");
-        help.add("add_accessories 'type' 'color'");
-        help.add("del_flower 'index'");
-        help.add("del_accessory 'index'");
-        help.add("show_flowers");
-        help.add("show_accessories");
-        help.add("back");
+    @Override
+    public HashMap<String, Command> initializeMenu() {
+        HashMap<String, Command> items = new HashMap<>();
+
+        Command newComm = new AddFlowersToBouquetCommand(bouquet);
+        items.put(newComm.getKey(), newComm);
+        help.add(newComm.getKey() + newComm.getParams());
+
+        newComm = new AddAccessoryToBouquetCommand(bouquet);
+        items.put(newComm.getKey(), newComm);
+        help.add(newComm.getKey() + newComm.getParams());
+
+        newComm = new DelFlowerCommand(bouquet);
+        items.put(newComm.getKey(), newComm);
+        help.add(newComm.getKey() + newComm.getParams());
+
+        newComm = new DelAccessoryCommand(bouquet);
+        items.put(newComm.getKey(), newComm);
+        help.add(newComm.getKey() + newComm.getParams());
+
+        newComm = new ShowFlowersCommand(bouquet);
+        items.put(newComm.getKey(), newComm);
+        help.add(newComm.getKey() + newComm.getParams());
+
+        newComm = new ShowAccessoriesCommand(bouquet);
+        items.put(newComm.getKey(), newComm);
+        help.add(newComm.getKey() + newComm.getParams());
+
+        newComm = new BackCommand();
+        items.put(newComm.getKey(), newComm);
+        help.add(newComm.getKey() + newComm.getParams());
+
+        return items;
     }
 }

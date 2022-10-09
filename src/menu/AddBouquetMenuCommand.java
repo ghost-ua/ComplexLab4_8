@@ -18,6 +18,11 @@ public class AddBouquetMenuCommand implements Command {
     }
 
     @Override
+    public String getKey(){
+        return "add_bouquet";
+    }
+
+    @Override
     public void execute(List<String> params) {
         Bouquet obj = new Bouquet();
 

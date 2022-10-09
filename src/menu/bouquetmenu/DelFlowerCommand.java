@@ -13,6 +13,14 @@ public class DelFlowerCommand implements Command {
     }
 
     @Override
+    public String getKey(){
+        return "del_flower";
+    }
+    @Override
+    public String getParams(){
+        return " 'index'";
+    }
+    @Override
     public void execute(List<String> params) {
         bouquet.getFlowers().remove(Integer.parseInt(params.get(0)));
         System.out.println("Flower deleted from bouquet");

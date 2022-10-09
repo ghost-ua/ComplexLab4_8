@@ -13,6 +13,14 @@ public class DelAccessoryCommand implements Command {
     }
 
     @Override
+    public String getKey(){
+        return "del_accessory";
+    }
+    @Override
+    public String getParams(){
+        return " 'index'";
+    }
+    @Override
     public void execute(List<String> params) {
         bouquet.getAccessories().remove(Integer.parseInt(params.get(0)));
         System.out.println("Flower deleted from bouquet");

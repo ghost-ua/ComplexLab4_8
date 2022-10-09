@@ -14,6 +14,14 @@ public class AddFlowersToBouquetCommand implements Command {
     }
 
     @Override
+    public String getKey(){
+        return "add_flowers";
+    }
+    @Override
+    public String getParams(){
+        return " 'type' 'count'";
+    }
+    @Override
     public void execute(List<String> params) {
         if (params.size() == 2) {
             BouquetUtils.addFlowersToBouquet(bouquet, params.get(0), Integer.parseInt(params.get(1)));

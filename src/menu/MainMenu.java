@@ -9,30 +9,43 @@ import java.util.List;
 
 public class MainMenu {
     protected HashMap<String, Command> menuItems;
-    protected List<String> help;
+    protected List<String> help = new ArrayList<>();
+    private final Order order = new Order();
 
     public MainMenu() {
+        menuItems = initializeMenu();
     }
 
-    public MainMenu(List<Order> orders) {
-        Order order = new Order();
 
-        menuItems = new HashMap<>();
-        menuItems.put("add_bouquet", new AddBouquetMenuCommand(order));
-        menuItems.put("show_order", new ShowOrderCommand(order));
-        menuItems.put("del_bouquet", new DeleteBouquetCommand(order));
-        menuItems.put("pay_order", new PayOrderCommand(order));
-        menuItems.put("cancel_order", new CancelOrderCommand(order));
-        menuItems.put("exit", new ExitCommand());
+    public HashMap<String, Command> initializeMenu() {
 
-        help = new ArrayList<>();
-        help.add("add_bouquet");
-        help.add("show_order");
-        help.add("del_bouquet 'index'");
-        help.add("pay_order");
-        help.add("cancel_order");
-        help.add("exit");
+        HashMap<String, Command> items = new HashMap<>();
 
+        Command newComm = new AddBouquetMenuCommand(order);
+        items.put(newComm.getKey(), newComm);
+        help.add(newComm.getKey() + newComm.getParams());
+
+        newComm = new ShowOrderCommand(order);
+        items.put(newComm.getKey(), newComm);
+        help.add(newComm.getKey() + newComm.getParams());
+
+        newComm = new DeleteBouquetCommand(order);
+        items.put(newComm.getKey(), newComm);
+        help.add(newComm.getKey() + newComm.getParams());
+
+        newComm = new PayOrderCommand(order);
+        items.put(newComm.getKey(), newComm);
+        help.add(newComm.getKey() + newComm.getParams());
+
+        newComm = new CancelOrderCommand(order);
+        items.put(newComm.getKey(), newComm);
+        help.add(newComm.getKey() + newComm.getParams());
+
+        newComm = new ExitCommand();
+        items.put(newComm.getKey(), newComm);
+        help.add(newComm.getKey() + newComm.getParams());
+
+        return items;
     }
 
     public void execute(List<String> commandWithParams) {
@@ -47,6 +60,5 @@ public class MainMenu {
             System.out.println("Incorect command! Try again or execute 'help' command ");
         }
     }
-
 }
 
