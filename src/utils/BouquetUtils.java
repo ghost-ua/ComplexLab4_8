@@ -39,17 +39,19 @@ public class BouquetUtils {
         flowerTypes.add("redrose");
         flowerTypes.add("blacktulip");
         flowerTypes.add("yellowtulip");
+        while(true) {
+            if (flowerTypes.contains(type)) {
+                for (int i = 0; i < count; i++) {
+                    bouquet.addFlower(createFlower(type, Freshness.MidFresh, 10));
+                }
+                bouquet.getFlowers().get(0).setStalkLength(5);
 
-        if (flowerTypes.contains(type)) {
-            for (int i = 0; i < count; i++) {
-                bouquet.addFlower(createFlower(type, Freshness.MidFresh, 10));
+                bouquet.makeName(type, count);
+                break;
+            } else {
+                System.out.println("Такої квітки немає. Оберіть іншу: ");
+                type = scanner.nextLine();
             }
-            bouquet.getFlowers().get(0).setStalkLength(5);
-
-            bouquet.makeName(type, count);
-        } else {
-            System.out.println("Такої квітки немає. Оберіть іншу: ");
-            type = scanner.nextLine();
         }
 
     }

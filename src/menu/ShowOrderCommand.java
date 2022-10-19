@@ -13,7 +13,7 @@ public class ShowOrderCommand implements Command {
     }
 
     @Override
-    public String getKey(){
+    public String getKey() {
         return "show_order";
     }
 

@@ -9,13 +9,19 @@ import java.util.List;
 
 public class MainMenu {
     protected HashMap<String, Command> menuItems;
-    protected List<String> help = new ArrayList<>();
+    protected List<String> help;
     private final Order order = new Order();
 
     public MainMenu() {
         menuItems = initializeMenu();
+        help = initializeHelp();
     }
 
+    public List<String> initializeHelp() {
+        List<String> initialize = new ArrayList<>();
+        menuItems.forEach((k, v) -> initialize.add(k + v.getParams()));
+        return initialize;
+    }
 
     public HashMap<String, Command> initializeMenu() {
 
@@ -23,27 +29,21 @@ public class MainMenu {
 
         Command newComm = new AddBouquetMenuCommand(order);
         items.put(newComm.getKey(), newComm);
-        help.add(newComm.getKey() + newComm.getParams());
 
         newComm = new ShowOrderCommand(order);
         items.put(newComm.getKey(), newComm);
-        help.add(newComm.getKey() + newComm.getParams());
 
         newComm = new DeleteBouquetCommand(order);
         items.put(newComm.getKey(), newComm);
-        help.add(newComm.getKey() + newComm.getParams());
 
         newComm = new PayOrderCommand(order);
         items.put(newComm.getKey(), newComm);
-        help.add(newComm.getKey() + newComm.getParams());
 
         newComm = new CancelOrderCommand(order);
         items.put(newComm.getKey(), newComm);
-        help.add(newComm.getKey() + newComm.getParams());
 
         newComm = new ExitCommand();
         items.put(newComm.getKey(), newComm);
-        help.add(newComm.getKey() + newComm.getParams());
 
         return items;
     }
@@ -57,7 +57,7 @@ public class MainMenu {
         } else if (command.equals("help")) {
             System.out.println(help);
         } else {
-            System.out.println("Incorect command! Try again or execute 'help' command ");
+            System.out.println("Incorrect command! Try again or execute 'help' command ");
         }
     }
 }
